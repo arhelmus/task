@@ -37,7 +37,7 @@ class ConfigLoader[A] {
   private def convertMapToConfig[A, R <: HList](map: Map[String, Any])(
       implicit gen: LabelledGeneric.Aux[A, R],
       fromMap: Lazy[FromMap[R]]): Option[A] = {
-    println(map)
+
     fromMap.value(map).map(gen.from)
   }
 
